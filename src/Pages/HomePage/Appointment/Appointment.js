@@ -9,7 +9,7 @@ const Appointment = () => {
     return (
         <div style={{ background: `url(${appointment})` }}
             className='flex my-10 justify-center items-center'>
-            <div className='flex-1 mt-[-100px]'>
+            <div className='flex-1 mt-[-50px]'>
                 <img src={doctor} alt="" />
             </div>
             <div className='flex-1'>

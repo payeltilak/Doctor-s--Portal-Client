@@ -11,21 +11,21 @@ const Testimonials = () => {
             _id: 1 ,
             name: 'Winson Herry',
             review: '',
-            location :'Chittagong',
+            location :'America',
             img:people1
         },
         {
             _id: 2,
-            name: 'Winson Herry',
+            name: 'Sunny Jerry',
             review: '',
-            location: 'Chittagong',
+            location: 'London',
             img:people2
         },
         {
             _id: 3 ,
-            name: 'Winson Herry',
+            name: 'Jesika Hemalton',
             review: '',
-            location: 'Chittagong',
+            location: 'Canada',
             img:people3
         },
         
