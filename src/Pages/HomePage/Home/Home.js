@@ -4,10 +4,11 @@ import Banner from '../Banner/Banner';
 import Info from '../Info/Info';
 import Services from '../Services/Services';
 import Treatment from '../Treatment/Treatment';
-import Appointment from '../Appointment/Appointment';
+
 import Testimonials from '../Testimonials/Testimonials';
 import Footer from '../Footer/Footer';
 import Form from '../Form/Form';
+import MakeAppointment from '../MakeAppointment/MakeAppointment';
 
 
 const Home = () => {
@@ -18,7 +19,7 @@ const Home = () => {
             <Info></Info>
             <Services></Services>
             <Treatment></Treatment>
-            <Appointment></Appointment>
+            <MakeAppointment></MakeAppointment>
             <Form></Form>
             <Testimonials></Testimonials>
             <Footer></Footer>
