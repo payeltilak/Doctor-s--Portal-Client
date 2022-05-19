@@ -1,24 +1,20 @@
-import React from 'react';
-import Footer from '../Footer/Footer';
-import chair from '../../../assets/images/chair.png';
+import React, { useState } from 'react';
+import Footer from '../../Shared/Footer/Footer';
 
+import AppointmentBanner from '../AppointmentBanner/AppointmentBanner';
+import AvailableAppointments from '../AvailableAppointments/AvailableAppointments';
 
 const Appointment = () => {
+
+    // const [date, setDate] = useState(new Date());
+    const [date, setDate] = useState(new Date());
+    console.log(date);
+ 
     return (
         <div>
-            <div class="hero min-h-screen bg-base-200">
-                <div class="hero-content flex-col lg:flex-row-reverse">
-                    <img src={chair} class="max-w-sm rounded-lg shadow-2xl" />
-                    <div>
-                        <h1 class="text-5xl font-bold">Box Office News!</h1>
-                        <p class="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-                        <button class="btn btn-primary">Get Started</button>
-                    </div>
-                </div>
-
-            </div>
-            <Footer></Footer>
-
+            <AppointmentBanner date={date} setDate={setDate}></AppointmentBanner>
+            <AvailableAppointments date={date}></AvailableAppointments>
+           <Footer></Footer>
         </div>
     );
 };

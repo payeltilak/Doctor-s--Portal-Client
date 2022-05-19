@@ -1,0 +1,64 @@
+[
+    {
+        "_id": 1,
+        "name": "Teeth Orthodonetics",
+        "slots": [
+            "08.00 AM - 8:30 AM",
+            "08.30 AM - 9:00 AM",
+            "09.00 AM - 9:30 AM",
+            "09.30 AM - 10:00 AM",
+            "10.00 AM - 11:00 AM"
+        ]
+    },
+    {
+        "_id": 2,
+        "name": "Cosmetic Dentistry",
+        "slots": [
+            "08.00 AM - 8:30 AM",
+            "08.30 AM - 9:00 AM",
+            "09.00 AM - 9:30 AM",
+            "09.30 AM - 10:00 AM",
+            "10.00 AM - 11:00 AM"
+        ]
+    },
+    {
+        "_id": 3,
+        "name": "Teeth Orthodonetics",
+        "slots": [
+            "08.00 AM - 8:30 AM",
+            "08.30 AM - 9:00 AM",
+            "09.00 AM - 9:30 AM",
+            "09.30 AM - 10:00 AM",
+            "10.00 AM - 11:00 AM"
+        ]
+    },
+    {
+        "_id": 4,
+        "name": "Teeth Orthodonetics",
+        "slots": []
+    }
+        
+    ,
+    {
+        "_id": 5,
+        "name": "Teeth Orthodonetics",
+        "slots": [
+            "08.00 AM - 8:30 AM",
+            "08.30 AM - 9:00 AM",
+            "09.00 AM - 9:30 AM",
+            "09.30 AM - 10:00 AM",
+            "10.00 AM - 11:00 AM"
+        ]
+    },
+    {
+        "_id": 5,
+        "name": "Teeth Orthodonetics",
+        "slots": [
+            "08.00 AM - 8:30 AM",
+            "08.30 AM - 9:00 AM",
+            "09.00 AM - 9:30 AM",
+            "09.30 AM - 10:00 AM",
+            "10.00 AM - 11:00 AM"
+        ]
+    }
+]

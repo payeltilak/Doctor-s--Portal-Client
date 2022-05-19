@@ -6,7 +6,7 @@ import Home from './Pages/HomePage/Home/Home';
 import About from './Pages/About/About';import Login from './Pages/Login/Login';
 import Banner from './Pages/HomePage/Banner/Banner';
 import Appointment from './Pages/HomePage/Appointment/Appointment';
-;
+
 
 function App() {
   return (
