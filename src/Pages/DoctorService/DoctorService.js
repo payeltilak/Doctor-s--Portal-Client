@@ -4,9 +4,9 @@ const DoctorService = ({ service, setTreatment }) => {
     const {name,slots } = service;
     
     return (
-        <div class="card w-96 bg-base-100 shadow-2xl p-5 my-10">
-            <div class="card-body">
-                <h2 class="card-title">{name}</h2>
+        <div className="card w-96 bg-base-100 shadow-2xl p-5 my-10">
+            <div className="card-body">
+                <h2 className="card-title">{name}</h2>
                 <p>
                     {
                         slots.length
@@ -18,10 +18,10 @@ const DoctorService = ({ service, setTreatment }) => {
                </p>
 
                 <p>{ slots.length} {slots.length>1?'spaces' : 'space'} available</p>
-                <div class="card-actions justify-center">
+                <div className="card-actions justify-center">
                    
                     <label
-                        disabled={slots.length === 0} onClick={() => setTreatment(service)} for="booking-modal" class="btn modal-button btn btn-primary">Book Appointment
+                        disabled={slots.length === 0} onClick={() => setTreatment(service)} htmlFor="booking-modal" className="btn modal-button btn btn-primary">Book Appointment
                     </label>
                 </div>
             </div>
