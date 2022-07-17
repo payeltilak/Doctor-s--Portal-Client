@@ -16,7 +16,7 @@ const Home = () => {
         <div className='px-12'>
           
             <Banner></Banner>
-            <Info></Info>
+            {/* <Info></Info> */}
             <Services></Services>
             <Treatment></Treatment>
             <MakeAppointment></MakeAppointment>

@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import { useForm } from "react-hook-form";
 import Loading from '../Shared/Loading';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import useToken from '../Hooks/UseToken';
+import userEvent from '@testing-library/user-event';
 
 const Login = () => {
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
@@ -16,6 +18,8 @@ const Login = () => {
         error,
     ] = useSignInWithEmailAndPassword(auth);
 
+    const [token]=useToken(user || user)
+
     let signInError;
     let navigate = useNavigate();
     let location = useLocation();
@@ -25,10 +29,12 @@ const Login = () => {
         signInError = <small><p className='text-red-500'>{error?.message || gError?.message}</p></small>
     }
 
-
-    if (user || gUser) {
-        navigate(from, { replace: true });
+    useEffect(() => {
+        if (token) {
+        navigate(from,{replace:true})
     }
+},[token,from,navigate])
+  
     if (loading || gLoading) {
         return <Loading></Loading>
     }
@@ -39,7 +45,7 @@ const Login = () => {
     }
     return (
         <div className='flex h-screen justify-center items-center'>
-            <div className="card w-96 bg-base-100 shadow-xl">
+            <div className="card w-96 bg-base-100 shadow-2xl">
                 <div className="card-body">
                     <h2 className="text-center text-2xl font-bold">Login</h2>
 
@@ -101,7 +107,7 @@ const Login = () => {
                                 }
                             </label>
                         </div>
-                        <input />
+                    
 
                         {signInError}
 

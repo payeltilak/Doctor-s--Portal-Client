@@ -10,7 +10,7 @@ const InfoCard = ({img,cardTitle,bgClass}) => {
                     </figure>
                 <div className="card-body container text-white">
                     <h2>{cardTitle}</h2>
-                    <h2 className="card-title text-white">New album is released! </h2>
+                    <h2 className="card-title text-white">Golpahar Mor,chittagong </h2>
                    
                   
                 </div>
