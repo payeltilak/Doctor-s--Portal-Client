@@ -28,7 +28,11 @@ const Services = () => {
             name_1: 'GERD',
             name_2: 'Tonsillitis',
             name_3: 'Voice Disorders',
-            name_3: '',
+            name_4: 'Common cold',
+            name_5: 'Strep throat',
+            name_6: 'Common cold',
+            // name_4: 'Croup',
+            // name_5: 'Laryngitis',
             description: '',
             img :throat
            },
@@ -39,8 +43,8 @@ const Services = () => {
     return (
         <div className='my-28 '>
             <div className='text-center '>
-                <h2 className='text-primary text-xl font-bold uppercase'>Our services</h2>
-                <h3 className='font-bold text-3xl p-5'>Services We Provide</h3>
+                <h2 className='text-blue-600 text-4xl font-bold uppercase'>Our services</h2>
+                <h3 className='font-bold text-2xl p-5'>Services We Provide</h3>
             </div>
 
             <div className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 '>

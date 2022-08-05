@@ -12,6 +12,9 @@ const Service = ({ service }) => {
                 <h2 className="card-title">{ service.name_1}</h2>
                 <h2 className="card-title">{ service.name_2}</h2>
                 <h2 className="card-title">{service.name_3}</h2>
+                <h2 className="card-title">{service.name_4}</h2>
+                <h2 className="card-title">{service.name_5}</h2>
+                <h2 className="card-title">{service.name_6}</h2>
             </div>
             
             </div>

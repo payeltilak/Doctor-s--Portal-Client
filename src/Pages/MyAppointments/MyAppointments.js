@@ -4,20 +4,30 @@ import auth from '../../firebase.init';
 
 const MyAppointments = () => {
     const [appointment, setAppointment] = useState([])
-    const[user]=useAuthState(auth)
+    const [user] = useAuthState(auth)
+    console.log(localStorage.getItem('accessToken'));
+    // eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InR1bnR1bkBnbWFpbC5jb20iLCJpYXQiOjE2NTg0MjU1NDAsImV4cCI6MTY1ODQyOTE0MH0.CxQRAbYx9xk84loAbzPcNQN8PyOx8ECHLciKSNlS_u4
     useEffect(() => {
-
         if (user) {
-            fetch(`http://localhost:5000/booking?patient=${user.email}`)
+            fetch(`http://localhost:5000/booking?patient=${user.email}`, {
+                method: 'GET',
+                headers: {
+                    'authorization':`Bearer ${localStorage.getItem('accessToken')}`
+                }
+            })
                 .then(res => res.json())
-                .then(data => setAppointment(data))
+                .then(data => {
+                    console.log("here it is",data);
+                    // setAppointment(data)
+                })
       }
     }, [user])
     return (
         <div>
-            <h2>My appointment :{appointment.length}</h2>
-            <div class="overflow-x-auto">
-                <table class="table w-full">
+            <h2>My appointment :{appointment?.length}</h2>
+         
+            <div className="overflow-x-auto">
+                <table className="table w-full">
                     {/* <!-- head --> */}
                     <thead>
                         <tr>
@@ -30,7 +40,7 @@ const MyAppointments = () => {
                     </thead>
                     <tbody>
                         {
-                            appointment.map((a,index) =>
+                            appointment?.map((a,index) =>
                                 <tr>
                                     <th>{index+1}</th>
                                     <td>{ a.patientName}</td>

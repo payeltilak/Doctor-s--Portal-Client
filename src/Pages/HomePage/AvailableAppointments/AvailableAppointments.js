@@ -24,7 +24,7 @@ const AvailableAppointments = ({ date }) => {
     // },[formateDate])
     return (
         <div>
-            <h3 className='text-4xl text-primary text-center '>Available Appointments on  {format(date, 'PP')} </h3>
+            <h3 className='text-4xl text-purple-900 font-bold p-4 text-center '>Available Appointments on  {format(date, 'PP')} </h3>
 
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 '>
                 {
