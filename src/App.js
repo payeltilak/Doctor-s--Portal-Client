@@ -46,10 +46,7 @@ function App() {
         </Route>
         
 
-        
-        
-          
-        <Route path='/banner' element={<Banner/>}></Route>
+       <Route path='/banner' element={<Banner/>}></Route>
       </Routes>
       <ToastContainer />
       
