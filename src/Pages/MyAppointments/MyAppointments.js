@@ -1,12 +1,15 @@
+import { signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 
 const MyAppointments = () => {
     const [appointment, setAppointment] = useState([])
     const [user] = useAuthState(auth)
-    console.log(localStorage.getItem('accessToken'));
-    // eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InR1bnR1bkBnbWFpbC5jb20iLCJpYXQiOjE2NTg0MjU1NDAsImV4cCI6MTY1ODQyOTE0MH0.CxQRAbYx9xk84loAbzPcNQN8PyOx8ECHLciKSNlS_u4
+    const navigate = useNavigate();
+    // console.log(localStorage.getItem('accessToken'));
+   
     useEffect(() => {
         if (user) {
             fetch(`http://localhost:5000/booking?patient=${user.email}`, {
@@ -15,10 +18,19 @@ const MyAppointments = () => {
                     'authorization':`Bearer ${localStorage.getItem('accessToken')}`
                 }
             })
-                .then(res => res.json())
+                .then(res => {
+                    console.log('res', res);
+                    if (res.status === 401 || res.status === 403) {
+                        signOut(auth);
+                        localStorage.removeItem('accessToken')
+                        navigate('/')
+                    }
+                  
+                   return res.json()
+
+                })
                 .then(data => {
-                    console.log("here it is",data);
-                    // setAppointment(data)
+                  setAppointment(data)
                 })
       }
     }, [user])
@@ -49,27 +61,7 @@ const MyAppointments = () => {
                                     <td>{ a.treatment}</td>
                                 </tr>)   
                         }
-                        {/* <!-- row 1 --> */}
-                        {/* <tr>
-                            <th>1</th>
-                            <td>Cy Ganderton</td>
-                            <td>Quality Control Specialist</td>
-                            <td>Blue</td>
-                        </tr> */}
-                        {/* <!-- row 2 --> */}
-                        {/* <tr>
-                            <th>2</th>
-                            <td>Hart Hagerty</td>
-                            <td>Desktop Support Technician</td>
-                            <td>Purple</td>
-                        </tr> */}
-                        {/* <!-- row 3 --> */}
-                        {/* <tr>
-                            <th>3</th>
-                            <td>Brice Swyre</td>
-                            <td>Tax Accountant</td>
-                            <td>Red</td>
-                        </tr> */}
+                        
                     </tbody>
                 </table>
             </div>
