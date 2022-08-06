@@ -9,6 +9,7 @@ const MyAppointments = () => {
     const [user] = useAuthState(auth)
     const navigate = useNavigate();
     // console.log(localStorage.getItem('accessToken'));
+    
    
     useEffect(() => {
         if (user) {
@@ -19,7 +20,7 @@ const MyAppointments = () => {
                 }
             })
                 .then(res => {
-                    console.log('res', res);
+                    // console.log('res', res);
                     if (res.status === 401 || res.status === 403) {
                         signOut(auth);
                         localStorage.removeItem('accessToken')
@@ -30,10 +31,12 @@ const MyAppointments = () => {
 
                 })
                 .then(data => {
+                    console.log(data);
                   setAppointment(data)
                 })
       }
-    }, [user])
+    }, [user, navigate])
+    console.log(appointment);
     return (
         <div>
             <h2>My appointment :{appointment?.length}</h2>
@@ -52,7 +55,7 @@ const MyAppointments = () => {
                     </thead>
                     <tbody>
                         {
-                            appointment?.map((a,index) =>
+                            appointment.bookings.map((a,index) =>
                                 <tr>
                                     <th>{index+1}</th>
                                     <td>{ a.patientName}</td>
