@@ -31,12 +31,12 @@ const MyAppointments = () => {
 
                 })
                 .then(data => {
-                    console.log(data);
-                  setAppointment(data)
+                    // console.log(data.bookings);
+                  setAppointment(data.bookings)
                 })
       }
     }, [user, navigate])
-    console.log(appointment);
+    // console.log(typeof appointment);
     return (
         <div>
             <h2>My appointment :{appointment?.length}</h2>
@@ -55,7 +55,7 @@ const MyAppointments = () => {
                     </thead>
                     <tbody>
                         {
-                            appointment.bookings.map((a,index) =>
+                            appointment?.map((a,index) =>
                                 <tr>
                                     <th>{index+1}</th>
                                     <td>{ a.patientName}</td>
