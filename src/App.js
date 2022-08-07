@@ -16,6 +16,8 @@ import Review from './Pages/Review';
 import History from './Pages/History/History';
 import Users from './Pages/Users';
 import Payment from './Pages/DashBoard/Payment';
+import RequireAdmin from './Pages/RequireAdmin';
+import AddDoctor from './Pages/AddDoctor';
 
 
 function App() {
@@ -44,6 +46,7 @@ function App() {
           <Route path="history" element={<History></History>}></Route>
           <Route path='payment/:id' element={<Payment />}></Route>
           <Route path="users" element={<Users></Users>}></Route>
+          <Route path="addDoctor" element={<AddDoctor></AddDoctor>}></Route>
           
         </Route>
         
