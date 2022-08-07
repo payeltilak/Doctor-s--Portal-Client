@@ -1,7 +1,7 @@
 import { signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 
 const MyAppointments = () => {
@@ -36,7 +36,7 @@ const MyAppointments = () => {
                 })
       }
     }, [user, navigate])
-    // console.log(typeof appointment);
+    // console.log(appointment._id);
     return (
         <div>
             <h2>My appointment :{appointment?.length}</h2>
@@ -51,6 +51,8 @@ const MyAppointments = () => {
                             <th>Date</th>
                             <th>Slot</th>
                             <th>Treatment</th>
+                            <th>Payment</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -61,7 +63,16 @@ const MyAppointments = () => {
                                     <td>{ a.patientName}</td>
                                     <td>{ a.date}</td>
                                     <td>{ a.slot}</td>
-                                    <td>{ a.treatment}</td>
+                                    <td>{a.treatment}</td>
+                                    <td>
+                                       {(a.price && !a.paid) && <Link to={`/dashboard/payment/${a._id}`}><button className='btn btn-xs btn-success'>Pay</button></Link>}
+                                    </td>
+                                    <td>
+                                        {(a.price && a.paid) && <div>
+                                            <p><span className='text-success'>Paid</span></p>
+                                            <p><small className='text-success'>TransactionId: {a.transactionId}</small></p>
+                                        </div>}
+                                    </td>
                                 </tr>)   
                         }
                         

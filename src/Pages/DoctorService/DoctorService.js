@@ -1,7 +1,8 @@
 import React from 'react';
 
 const DoctorService = ({ service, setTreatment }) => {
-    const {name,slots } = service;
+    const { name, slots,price } = service;
+    console.log(service);
     
     return (
         <div className="card w-96 bg-indigo-200 shadow-2xl p-5 my-10">
@@ -17,7 +18,8 @@ const DoctorService = ({ service, setTreatment }) => {
                     }
                </p>
 
-                <p>{ slots.length} {slots.length>1?'spaces' : 'space'} available</p>
+                <p>{slots.length} {slots.length > 1 ? 'spaces' : 'space'} available</p>
+                <p><small>Price: ${price}</small></p>
                 <div className="card-actions justify-center">
                    
                     <label

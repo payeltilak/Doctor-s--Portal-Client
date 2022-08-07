@@ -3,7 +3,6 @@ import {toast } from 'react-toastify';
 
 const UserRow = ({ user,refetch }) => {
     const { email, role } = user;
-    console.log(user);
     const makeAdmin = () => {
         fetch(`http://localhost:5000/user/admin/${email}`, {
             method: 'PUT',

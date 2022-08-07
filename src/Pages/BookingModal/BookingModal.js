@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 
 const BookingModal = ({ treatment, date, setTreatment,refetch }) => {
     console.log(treatment);
-    const { _id, name, slots } = treatment;
+    const { _id, name, slots,price } = treatment;
     const [user, loading, error] = useAuthState(auth);
     const formateDate = format(date, 'PP');
 
@@ -15,17 +15,15 @@ const BookingModal = ({ treatment, date, setTreatment,refetch }) => {
         event.preventDefault();
         const slot = event.target.slot.value;
         console.log(_id, name, slots);
-    const booking=
-    {
-            
-        treatmentId: _id,
-        treatment: name,
-        date: formateDate, slot,
-        patient: user.email,
-        patientName: user.displayName,
-        phone:event.target.phone.value
-        
-           
+        const booking = {
+            treatmentId: _id,
+            treatment: name,
+            date: formateDate,
+            slot: slot,
+            price,
+            patient: user.email,
+            patientName: user.displayName,
+            phone: event.target.phone.value
         }
         fetch('http://localhost:5000/booking', {
             method: 'POST',
